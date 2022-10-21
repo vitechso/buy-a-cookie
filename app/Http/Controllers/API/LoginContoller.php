@@ -22,7 +22,7 @@ class LoginContoller extends Controller
         // check validation
 		if($validator->fails()) {
             // return validation error
-            return response()->json(['error'=>$validator->errors()], 401);
+            return response()->json(['error'=>$validator->errors()], 400);
 		}
 
         // check and login user
@@ -46,7 +46,7 @@ class LoginContoller extends Controller
             
         }else{
             // return error
-            return response()->json(['error'=>'Unauthorised'], 401);
+            return response()->json(['error'=>'The email address or password is incorrect. Please retry'], 400);
         }
     }
 
